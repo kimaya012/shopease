@@ -1,0 +1,49 @@
+/* Minimal light theme palette: yellow, blue and white. */
+:root {
+	--bg: #ffffff;
+	--surface: #ffffff;
+	--muted: #64748b; /* slate-500 */
+	--text: #0f172a; /* slate-900 */
+	--accent: #339cff; /* blue (emerald-500 mapped) */
+	--accent-600: #1e7be6;
+	--highlight: #ffce1a; /* amber-500 */
+}
+
+.dark {
+	--bg: #0f172a;
+	--surface: #0b1220;
+	--muted: #94a3b8;
+	--text: #f8fafc;
+	--accent: #66baff;
+	--accent-600: #1e7be6;
+	--highlight: #ffdb4d;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Small base layer to bind the CSS variables to Tailwind utility tokens */
+@layer base {
+	html, body, #root {
+		height: 100%;
+		background-color: var(--bg);
+		color: var(--text);
+	}
+
+	/* Make default container surfaces use our surface color */
+	.surface {
+		background-color: var(--surface);
+	}
+
+	/* Utility helpers for accent/highlight that may be used inline */
+	.accent {
+		color: var(--accent);
+	}
+	.bg-accent {
+		background-color: var(--accent);
+	}
+	.ring-accent {
+		box-shadow: 0 0 0 3px rgba(51,156,255,0.12);
+	}
+}
